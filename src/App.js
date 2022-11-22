@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { Menu } from "./components/Menu";
+import styled, { css } from 'styled-components';
+import Navbar from "./components/Navbar";
 import './App.css';
-
+import Video_suggestions from "./components/Video_suggestions";
+import Video_list from "./components/Video_list";
+const Container=styled.div`
+display: flex;
+min-height: 100vh;
+`
+const Main=styled.div`
+flex:10;
+`
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+// Youtube có 2 phần gồm thanh menu bên trái và phần main bên phải
+<Container>
+    <Menu ></Menu>
+    <Main >
+      <Navbar></Navbar>
+      <Video_suggestions></Video_suggestions>
+      <Video_list></Video_list>
+    </Main>
+</Container>
   );
 }
 
