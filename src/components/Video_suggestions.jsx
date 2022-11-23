@@ -1,18 +1,26 @@
 import React from 'react'
 import styled from 'styled-components';
 const Container=styled.div`
-margin-top: 3vh;
 display: flex;
 justify-content: center;
+margin-top: 80px;
+width: 100%;
+height: 100%;
 `
 const Button=styled.button`
-width: 15vh;
-height: 5vh;
-border-radius: 1vh;
+min-width: 8vw;
+min-height: 40px;
+border-radius: 17px;
 border: none;
-background-color: #f2f2f2;
-margin-left: 5vh;
-
+background-color: #5188ca;
+color: white;
+font-size: 15px;
+cursor: pointer;
+margin-left: 4vw;
+box-shadow: 1px 1px 1px #0e2e56;
+:hover{
+  opacity: 0.7;
+}
 `
 export default function video_suggestions() {
   return (

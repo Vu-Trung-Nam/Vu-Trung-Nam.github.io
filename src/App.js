@@ -1,27 +1,40 @@
 import { Menu } from "./components/Menu";
-import styled, { css } from 'styled-components';
+import styled, {  ThemeProvider } from 'styled-components';
 import Navbar from "./components/Navbar";
-import './App.css';
 import Video_suggestions from "./components/Video_suggestions";
 import Video_list from "./components/Video_list";
+import {darkTheme, lightTheme} from "./utils/Theme"
+import { useState } from "react";
 const Container=styled.div`
-display: flex;
-min-height: 100vh;
+width: 100%;
+height: 100%;
+background-color: #f5f5f5;
 `
 const Main=styled.div`
-flex:10;
+width: 85%;
+float: right;
+min-height: 100%;
 `
+const Containervideo=styled.div``
+
+
+
 function App() {
+  const [lightMode,setLightMode]=useState(true)
   return (
 // Youtube có 2 phần gồm thanh menu bên trái và phần main bên phải
+<ThemeProvider theme={lightMode ? lightTheme : darkTheme }>
 <Container>
-    <Menu ></Menu>
+    <Menu lightMode={lightMode} setLightMode={setLightMode} ></Menu>
     <Main >
-      <Navbar></Navbar>
-      <Video_suggestions></Video_suggestions>
-      <Video_list></Video_list>
+        <Navbar></Navbar>
+        <Containervideo>
+            <Video_suggestions></Video_suggestions>
+            <Video_list></Video_list>
+        </Containervideo>
     </Main>
 </Container>
+</ThemeProvider>
   );
 }
 
